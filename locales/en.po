@@ -1,0 +1,57 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: c8yui\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language: en\n"
+"Language-Team: \n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "air-quality.label"
+msgstr "Air Quality:"
+
+msgid "air-quality.excellent.label"
+msgstr "Excellent"
+
+msgid "air-quality.excellent.recommendation"
+msgstr "No actions needed"
+
+msgid "air-quality.good.label"
+msgstr "Good"
+
+msgid "air-quality.good.recommendation"
+msgstr "No actions needed"
+
+msgid "air-quality.lightly-polluted.label"
+msgstr "Lightly Polluted"
+
+msgid "air-quality.lightly-polluted.recommendation"
+msgstr "Ventilation suggested"
+
+msgid "air-quality.moderately-polluted.label"
+msgstr "Moderately Polluted"
+
+msgid "air-quality.moderately-polluted.recommendation"
+msgstr "Increase ventilation with clean air"
+
+msgid "air-quality.heavily-polluted.label"
+msgstr "Heavily Polluted"
+
+msgid "air-quality.heavily-polluted.recommendation"
+msgstr "Optimize ventilation"
+
+msgid "air-quality.severely-polluted.label"
+msgstr "Severely Polluted"
+
+msgid "air-quality.severely-polluted.recommendation"
+msgstr "Maximize ventilation and reduce attendance"
+
+msgid "air-quality.extremely-polluted.label"
+msgstr "Extremely Polluted"
+
+msgid "air-quality.extremely-polluted.recommendation"
+msgstr "Avoid presence in room and maximize ventilation"

@@ -1,0 +1,57 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: c8yui\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language: de\n"
+"Language-Team: \n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "air-quality.label"
+msgstr "Luftqualität:"
+
+msgid "air-quality.excellent.label"
+msgstr "Exzellent"
+
+msgid "air-quality.excellent.recommendation"
+msgstr "Keine Maßnahmen erforderlich"
+
+msgid "air-quality.good.label"
+msgstr "Gut"
+
+msgid "air-quality.good.recommendation"
+msgstr "Keine Maßnahmen erforderlich"
+
+msgid "air-quality.lightly-polluted.label"
+msgstr "Leicht verschmutzt"
+
+msgid "air-quality.lightly-polluted.recommendation"
+msgstr "Lüften empfohlen"
+
+msgid "air-quality.moderately-polluted.label"
+msgstr "Mäßig verschmutzt"
+
+msgid "air-quality.moderately-polluted.recommendation"
+msgstr "Lüften mit sauberer Luft erhöhen"
+
+msgid "air-quality.heavily-polluted.label"
+msgstr "Stark verschmutzt"
+
+msgid "air-quality.heavily-polluted.recommendation"
+msgstr "Lüften optimieren"
+
+msgid "air-quality.severely-polluted.label"
+msgstr "Sehr stark verschmutzt"
+
+msgid "air-quality.severely-polluted.recommendation"
+msgstr "Maximieren Sie das Lüften des Raumes und reduzieren Sie die Anwesenheit im Raum"
+
+msgid "air-quality.extremely-polluted.label"
+msgstr "Extrem verschmutzt"
+
+msgid "air-quality.extremely-polluted.recommendation"
+msgstr "Vermeiden Sie die Anwesenheit im Raum und Maximieren Sie das Lüften des Raumes"
