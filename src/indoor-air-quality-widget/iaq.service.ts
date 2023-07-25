@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { IMeasurement, MeasurementService, Realtime } from '@c8y/client';
 import { Subject } from 'rxjs';
 import { IndoorAirQualityLevel } from './iaq.model';
-import { has, get } from 'lodash';
+import { get } from 'lodash';
+import { MeasurementRealtimeService } from '@c8y/ngx-components';
 
 @Injectable()
 export class IndoorAirQualityWidgetService {
@@ -76,7 +76,7 @@ export class IndoorAirQualityWidgetService {
     IndoorAirQualityLevel & { value: number }
   >();
 
-  constructor(private measurementService: MeasurementService, private realtime: Realtime) {}
+  constructor(private measurementRealtimeService: MeasurementRealtimeService) {}
 
   init(deviceId: string, measurementFragment: string, measurementSeries: string) {
     this.loadLatestMeasurement(deviceId, measurementFragment, measurementSeries);
@@ -88,31 +88,13 @@ export class IndoorAirQualityWidgetService {
     measurementFragment: string,
     measurementSeries: string
   ) {
-    const filter = {
-      source: deviceId,
-      dateFrom: '1970-01-01',
-      dateTo: new Date().toISOString(),
-      valueFragmentType: measurementFragment,
-      valueFragmentSeries: measurementSeries,
-      pageSize: 1,
-      revert: true,
-    };
-
-    this.measurementService.list(filter).then((response) => {
-      if (
-        !response.data ||
-        response.data.length != 1 ||
-        !has(response.data[0], `${measurementFragment}.${measurementSeries}`)
-      ) {
-        return;
-      }
-
-      const indoorAirQualityValue: number = get(
-        response.data[0],
-        `${measurementFragment}.${measurementSeries}.value`
+    this.measurementRealtimeService
+      .latestValueOfSpecificMeasurement$(measurementFragment, measurementSeries, deviceId)
+      .subscribe((measurement) =>
+        this.updateIndoorAirQualityLevel(
+          get(measurement, `${measurementFragment}.${measurementSeries}.value`) as number
+        )
       );
-      this.updateIndoorAirQualityLevel(indoorAirQualityValue);
-    });
   }
 
   private subscribeForMeasurements(
@@ -120,18 +102,13 @@ export class IndoorAirQualityWidgetService {
     measurementFragment: string,
     measurementSeries: string
   ) {
-    this.realtime.subscribe(`/measurements/${deviceId}`, (measurementNotification) => {
-      const measurement: IMeasurement = measurementNotification.data.data;
-      if (!measurement || !has(measurement, `${measurementFragment}.${measurementSeries}`)) {
-        return;
-      }
-
-      const indoorAirQualityValue: number = get(
-        measurement,
-        `${measurementFragment}.${measurementSeries}.value`
+    this.measurementRealtimeService
+      .onCreateOfSpecificMeasurement$(measurementFragment, measurementSeries, deviceId)
+      .subscribe((measurement) =>
+        this.updateIndoorAirQualityLevel(
+          get(measurement, `${measurementFragment}.${measurementSeries}.value`) as number
+        )
       );
-      this.updateIndoorAirQualityLevel(indoorAirQualityValue);
-    });
   }
 
   private updateIndoorAirQualityLevel(indoorAirQualityValue: number) {

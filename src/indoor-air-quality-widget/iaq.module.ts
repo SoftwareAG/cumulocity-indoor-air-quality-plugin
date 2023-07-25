@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CoreModule, DynamicComponentDefinition, HOOK_COMPONENTS } from '@c8y/ngx-components';
+import {
+  CoreModule,
+  DynamicComponentDefinition,
+  HOOK_COMPONENTS,
+  MeasurementRealtimeService,
+} from '@c8y/ngx-components';
 import { ContextWidgetConfig } from '@c8y/ngx-components/context-dashboard';
 import { previewImage } from './assets/preview-image';
 import { IndoorAirQualityWidgetComponent } from './iaq.component';
@@ -24,6 +29,7 @@ import { IndoorAirQualityGaugeComponent } from './iaq-gauge.component';
     IndoorAirQualityGaugeComponent,
   ],
   providers: [
+    MeasurementRealtimeService,
     {
       provide: HOOK_COMPONENTS,
       multi: true,
