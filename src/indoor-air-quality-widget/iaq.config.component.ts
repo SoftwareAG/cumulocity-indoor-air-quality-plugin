@@ -2,13 +2,18 @@ import { Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges } from '@an
 import { get, has } from 'lodash';
 import { IndoorAirQualityConfigWidgetService } from './iaq.config.service';
 import { WidgetConfiguration } from './iaq.model';
+import { ControlContainer, NgForm } from '@angular/forms';
+import { DynamicComponent, OnBeforeSave } from '@c8y/ngx-components';
 
 @Component({
   selector: 'indoor-air-quality-widget-configuration',
   templateUrl: 'iaq.config.component.html',
-  providers: [IndoorAirQualityConfigWidgetService]
+  providers: [IndoorAirQualityConfigWidgetService],
+  viewProviders: [{ provide: ControlContainer, useExisting: NgForm }],
 })
-export class IndoorAirQualityWidgetConfigurationComponent implements DoCheck {
+export class IndoorAirQualityWidgetConfigurationComponent
+  implements DoCheck, DynamicComponent, OnBeforeSave
+{
   @Input() config: WidgetConfiguration;
 
   deviceId: string;
@@ -17,7 +22,7 @@ export class IndoorAirQualityWidgetConfigurationComponent implements DoCheck {
 
   selectedDataPoint: string;
 
-  constructor(private iaqConfigWidgetService: IndoorAirQualityConfigWidgetService) { }
+  constructor(private iaqConfigWidgetService: IndoorAirQualityConfigWidgetService) {}
 
   ngOnInit(): void {
     if (!this.config || !this.config.device || !this.config.dataPoint) {
@@ -37,9 +42,9 @@ export class IndoorAirQualityWidgetConfigurationComponent implements DoCheck {
   }
 
   onDataPointSelected() {
-    const measurement: string[] = this.selectedDataPoint.split('.');
+    const dataPoint: string[] = this.selectedDataPoint.split('.');
     this.config = Object.assign(this.config, {
-      dataPoint: { fragment: measurement[0], series: measurement[1] }
+      dataPoint: { fragment: dataPoint[0], series: dataPoint[1] },
     });
   }
 
@@ -47,5 +52,9 @@ export class IndoorAirQualityWidgetConfigurationComponent implements DoCheck {
     this.supportedDataPointSeries = await this.iaqConfigWidgetService.getSupportedDataPointSeries(
       get(this.config, 'device.id')
     );
+  }
+
+  onBeforeSave(): boolean {
+    return !!this.selectedDataPoint;
   }
 }
