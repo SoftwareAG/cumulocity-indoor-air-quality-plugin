@@ -11,6 +11,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid "air-quality.config.label"
+msgstr "Datenpunkt für die Luftqualität selektieren:"
+
 msgid "air-quality.label"
 msgstr "Luftqualität:"
 
