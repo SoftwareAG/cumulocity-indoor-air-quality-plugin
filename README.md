@@ -14,7 +14,7 @@ The supported levels are:
 
 **Preview**:
 
-![air_quality](https://user-images.githubusercontent.com/57527184/155506753-1f381610-3498-44b2-b60c-eea2a9c6e5ee.png)
+![air_quality](screenshots/indoor-air-quality-preview.png?raw=true 'Indoor Air Quality Widget Screenshot')
 
 ---
 
