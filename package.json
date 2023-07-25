@@ -1,6 +1,6 @@
 {
   "name": "indoor-air-quality-plugin",
-  "version": "1016.0.310",
+  "version": "1.0.0",
   "description": "Indoor Air Quality Widget to display the air quality in a gauge",
   "scripts": {
     "start": "c8ycli server -u {{C8Y_BASE_URL}} --shell cockpit",
