@@ -1,0 +1,17 @@
+<div *ngIf="!!currentIndoorAirQuality">
+  <indoor-air-quality-gauge-component [airQuality]="currentIndoorAirQuality.value">
+  </indoor-air-quality-gauge-component>
+  <div style="padding: 0px 20px; margin-top: -20px;">
+    <div class="iaq-container d-flex j-c-center" [style.background-color]="currentIndoorAirQuality.cssColor">
+      <div class="col-lg-12 d-flex d-col j-c-center a-i-center">
+        <div class="iaq-value">
+          Air Quality: {{ currentIndoorAirQuality.value | number: '1.0-0' }}
+        </div>
+        <div class="iaq-label">{{ currentIndoorAirQuality.label }}</div>
+      </div>
+    </div>
+    <div class="recommendation-container" [style.color]="currentIndoorAirQuality.cssColor">
+      <div class="recommendation">{{ currentIndoorAirQuality.recommendation }}</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,77 @@
+{
+  "name": "indoor-air-quality-plugin",
+  "version": "1016.0.310",
+  "description": "Indoor Air Quality Widget to display the air quality in a gauge",
+  "scripts": {
+    "start": "c8ycli server -u {{C8Y_BASE_URL}} --shell cockpit",
+    "build": "c8ycli build",
+    "deploy": "c8ycli deploy",
+    "postinstall": "ngcc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/animations": "14.0.6",
+    "@angular/cdk": "14.1.2",
+    "@angular/common": "14.0.6",
+    "@angular/compiler": "14.0.6",
+    "@angular/core": "14.0.6",
+    "@angular/forms": "14.0.6",
+    "@angular/platform-browser": "14.0.6",
+    "@angular/platform-browser-dynamic": "14.0.6",
+    "@angular/router": "14.0.6",
+    "@angular/upgrade": "14.0.6",
+    "@c8y/client": "1016.0.310",
+    "@c8y/ngx-components": "1016.0.310",
+    "@ngx-translate/core": "14.0.0",
+    "rxjs": "~6.6.3",
+    "zone.js": "~0.11.7",
+    "@c8y/style": "1016.0.310",
+    "d3": "7.8.5",
+    "d3-scale": "4.0.2"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "14.0.6",
+    "@angular/compiler-cli": "14.0.6",
+    "@angular/language-service": "14.0.6",
+    "@angular/service-worker": "14.0.6",
+    "@angular/localize": "14.0.6",
+    "@types/jest": "^28.1.6",
+    "jest": "^28.1.3",
+    "jest-preset-angular": "^12.2.0",
+    "typescript": "4.7.4",
+    "@c8y/cli": "1016.0.310",
+    "@types/d3": "7.4.0"
+  },
+  "c8y": {
+    "application": {
+      "name": "Indoor Air Quality Plugin",
+      "description": "Indoor Air Quality Widget to display the air quality in a gauge",
+      "contextPath": "indoor-air-quality-plugin",
+      "key": "indoor-air-quality-plugin-application-key",
+      "globalTitle": "Indoor Air Quality Plugin",
+      "tabsHorizontal": true,
+      "isPackage": true,
+      "noAppSwitcher": true,
+      "package": "plugin",
+      "exports": [
+        {
+          "name": "Indoor Air Quality Plugin",
+          "module": "IndoorAirQualityWidgetModule",
+          "path": "./src/indoor-air-quality-widget/iaq.module.ts",
+          "description": "Indoor Air Quality Widget to display the air quality in a gauge"
+        }
+      ],
+      "remotes": {
+        "indoor-air-quality-plugin": [
+          "IndoorAirQualityWidgetModule"
+        ]
+      }
+    },
+    "cli": {}
+  },
+  "browserslist": [
+    "last 2 major versions"
+  ]
+}
