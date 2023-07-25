@@ -8,9 +8,18 @@
     "deploy": "c8ycli deploy",
     "postinstall": "ngcc"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "Cumulocity",
+    "Plugin",
+    "Widget",
+    "Air Quality"
+  ],
+  "author": "Software AG",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/SoftwareAG/cumulocity-indoor-air-quality-plugin/issues"
+  },
+  "homepage": "https://github.com/SoftwareAG/cumulocity-indoor-air-quality-plugin#readme",
   "dependencies": {
     "@angular/animations": "14.0.6",
     "@angular/cdk": "14.1.2",
@@ -48,8 +57,8 @@
     "application": {
       "name": "Indoor Air Quality Plugin",
       "description": "Indoor Air Quality Widget to display the air quality in a gauge",
-      "contextPath": "indoor-air-quality-plugin",
-      "key": "indoor-air-quality-plugin-application-key",
+      "contextPath": "sag-ps-iot-pkg-indoor-air-quality-plugin",
+      "key": "sag-ps-iot-pkg-indoor-air-quality-plugin-application-key",
       "globalTitle": "Indoor Air Quality Plugin",
       "tabsHorizontal": true,
       "isPackage": true,
@@ -64,10 +73,16 @@
         }
       ],
       "remotes": {
-        "indoor-air-quality-plugin": [
+        "sag-ps-iot-pkg-indoor-air-quality-plugin": [
           "IndoorAirQualityWidgetModule"
         ]
-      }
+      },
+      "copy": [
+        {
+          "from": "LICENSE",
+          "to": "LICENSE.txt"
+        }
+      ]
     },
     "cli": {}
   },
